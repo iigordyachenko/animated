@@ -1,70 +1,67 @@
-char_starting_location: [-0.3, -0.2, -0.5]
+char_starting_location: [0.0, 0.0, -0.5]
 bvh_projection_bodypart_groups:
 - bvh_joint_names:
-  - RightShoulder
-  - RightArm
-  - RightForeArm
-  - RightHand
-  - RightHandEnd
-  - LeftShoulder
   - LeftArm
   - LeftForeArm
   - LeftHand
-  - LeftHandEnd
-  method: pca
+  - RightArm
+  - RightForeArm
+  - RightHand
+  method: frontal
   name: Upper Limbs
 - bvh_joint_names:
+  - LeftUpLeg
+  - LeftHipJoint
+  - RightHipJoint
+  - LeftLeg
+  - LeftFoot
   - RightUpLeg
   - RightLeg
   - RightFoot
-  - RightToeBase
-  - LeftUpLeg
-  - LeftLeg
-  - LeftFoot
-  - LeftToeBase
-  method: pca
+  method: frontal
   name: Lower Limbs
 - bvh_joint_names:
   - Hips
   - Spine
   - Spine1
-  - Spine2
-  - Spine3
+  - LowerBack
   - Neck
-  - Head
+  - Neck1
+  - LeftShoulder
+  - RightShoulder
   method: frontal
   name: Trunk
 char_bodypart_groups:
 - bvh_depth_drivers:
   - Hips
   char_joints:
-  - right_hip_b
-  - left_hip_b
-  - right_hip_f
-  - left_hip_f
+  - right_shoulder
+  - left_shoulder
+  - right_hip
+  - left_hip
   - hip
   - torso
   - neck
 - bvh_depth_drivers:
-  - LeftFoot
+  - LeftHand
   char_joints:
-  - left_knee_f
-  - left_foot_f
+  - left_elbow
+  - left_hand
+- bvh_depth_drivers:
+  - RightHand
+  char_joints:
+  - right_elbow
+  - right_hand
 - bvh_depth_drivers:
   - LeftFoot
   char_joints:
-  - left_knee_b
-  - left_foot_b
+  - left_knee
+  - left_foot
 - bvh_depth_drivers:
   - RightFoot
   char_joints:
-  - right_knee_f
-  - right_foot_f
-- bvh_depth_drivers:
-  - RightFoot
-  char_joints:
-  - right_knee_b
-  - right_foot_b
+  - right_knee
+  - right_foot
 char_bvh_root_offset:
   bvh_projection_bodypart_group_for_offset: Lower Limbs
   bvh_joints:
@@ -75,44 +72,45 @@ char_bvh_root_offset:
     - LeftLeg
     - LeftUpLeg
   char_joints:
-  - - left_foot_f
-    - left_knee_f
-    - left_hip_f
-  - - right_foot_f
-    - right_knee_f
-    - right_hip_f
-  - - left_foot_b
-    - left_knee_b
-    - left_hip_b
-  - - right_foot_b
-    - right_knee_b
-    - right_hip_b
+  - - left_foot
+    - left_knee
+    - left_hip
+  - - right_foot
+    - right_knee
+    - right_hip
 char_joint_bvh_joints_mapping:
-  left_foot_b: !!python/tuple
+  left_elbow: !!python/tuple
+  - LeftArm
+  - LeftForeArm
+  left_foot: !!python/tuple
   - LeftLeg
   - LeftFoot
-  left_knee_b: !!python/tuple
+  left_hand: !!python/tuple
+  - LeftForeArm
+  - LeftHand
+  left_knee: !!python/tuple
   - LeftUpLeg
   - LeftLeg
-  right_foot_b: !!python/tuple
-  - RightLeg
-  - RightFoot
-  right_knee_b: !!python/tuple
-  - RightUpLeg
-  - RightLeg
-  left_foot_f: !!python/tuple
-  - LeftLeg
-  - LeftFoot
-  left_knee_f: !!python/tuple
-  - LeftUpLeg
-  - LeftLeg
-  right_foot_f: !!python/tuple
-  - RightLeg
-  - RightFoot
-  right_knee_f: !!python/tuple
-  - RightUpLeg
-  - RightLeg
+  torso: !!python/tuple
+  - Hips
+  - Spine1
   neck: !!python/tuple
   - Hips
-  - Neck
-char_runtime_checks: []
+  - Neck1
+  right_elbow: !!python/tuple
+  - RightArm
+  - RightForeArm
+  right_foot: !!python/tuple
+  - RightLeg
+  - RightFoot
+  right_hand: !!python/tuple
+  - RightForeArm
+  - RightHand
+  right_knee: !!python/tuple
+  - RightUpLeg
+  - RightLeg
+char_runtime_checks:
+  - - above
+    - neck
+    - right_shoulder
+    - left_shoulder

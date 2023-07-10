@@ -43,6 +43,7 @@ class WindowView(View):
         self._set_shader_projections(get_projection_matrix(*self.get_framebuffer_size()))
 
     def _prep_background_image(self) -> None:
+
         """ Initialize framebuffer object for background image, if specified. """
 
         # if nothing specified, return
@@ -59,6 +60,7 @@ class WindowView(View):
         GL.glBindTexture(GL.GL_TEXTURE_2D, self.txtr_id)
         GL.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_BASE_LEVEL, 0)
         GL.glTexParameteri(GL.GL_TEXTURE_2D, GL.GL_TEXTURE_MAX_LEVEL, 0)
+
         GL.glTexImage2D(GL.GL_TEXTURE_2D, 0, GL.GL_RGBA, self.txtr_w, self.txtr_h, 0, GL.GL_RGBA, GL.GL_UNSIGNED_BYTE, _txtr)
 
         # make framebuffer object
@@ -157,3 +159,4 @@ class WindowView(View):
     def cleanup(self) -> None:
         """ Destroy the window when it's no longer being used. """
         glfw.destroy_window(self.win)
+

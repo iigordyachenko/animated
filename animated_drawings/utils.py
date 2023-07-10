@@ -40,7 +40,12 @@ def read_background_image(file_name: str) -> npt.NDArray[np.uint8]:
 
     # Open the image and rotate as needed depending upon exif tag
     image = Image.open(str(file_path))
+
+
+
     image = ImageOps.exif_transpose(image)
+
+
 
     # Convert to numpy array and flip rightside up
     image_np = np.asarray(image)
@@ -52,4 +57,12 @@ def read_background_image(file_name: str) -> npt.NDArray[np.uint8]:
     if len(image_np.shape) == 2:  # if grayscale
         image_np = cv2.cvtColor(image_np, cv2.COLOR_GRAY2RGBA)
 
+
+
+
+
+
     return image_np.astype(np.uint8)
+
+
+

@@ -4,31 +4,36 @@ bvh_projection_bodypart_groups:
   - LeftArm
   - LeftForeArm
   - LeftHand
+  - LeftHandEndSite
   - RightArm
-  - RightForeArm
   - RightHand
+  - RightForeArm
+  - RightHandEndSite
   method: frontal
   name: Upper Limbs
 - bvh_joint_names:
   - LeftUpLeg
-  - LeftHipJoint
-  - RightHipJoint
   - LeftLeg
   - LeftFoot
+  - LeftFootEndSite
   - RightUpLeg
   - RightLeg
   - RightFoot
+  - RightFootEndSite
   method: frontal
   name: Lower Limbs
 - bvh_joint_names:
-  - Hips
-  - Spine
-  - Spine1
+  - HeadEndSite
   - LowerBack
   - Neck
   - Neck1
+  - Hips
+  - Spine
+  - Spine1
   - LeftShoulder
   - RightShoulder
+  - LeftHipJoint
+  - RightHipJoint
   method: frontal
   name: Trunk
 char_bodypart_groups:
@@ -93,10 +98,10 @@ char_joint_bvh_joints_mapping:
   - LeftLeg
   torso: !!python/tuple
   - Hips
-  - Spine1
+  - Spine2
   neck: !!python/tuple
   - Hips
-  - Neck1
+  - Head
   right_elbow: !!python/tuple
   - RightArm
   - RightForeArm

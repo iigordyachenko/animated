@@ -168,7 +168,9 @@ class Retargeter():
             logging.critical(msg)
             assert False, msg
 
+
         # get the xyz locations of joints within this joint_projection_group
+        print(joint_names)
         joints_idxs = [self.bvh_joint_names.index(joint_name) for joint_name in joint_names]
         joints_mask = np.full(self.joint_positions.shape[1], False, dtype=np.bool8)
         for idx in joints_idxs:
